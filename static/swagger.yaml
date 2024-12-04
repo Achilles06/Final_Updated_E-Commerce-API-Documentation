@@ -1,0 +1,298 @@
+
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "E-Commerce API"
+  description: "API documentation for the E-Commerce system"
+host: "localhost:5000"
+basePath: "/api"
+schemes:
+  - "http"
+paths:
+  /products:
+    get:
+      summary: "Retrieve a list of products"
+      responses:
+        200:
+          description: "A list of products"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Product"
+    post:
+      summary: "Create a new product"
+      parameters:
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/ProductInput"
+      responses:
+        201:
+          description: "Product created successfully"
+  /products/{id}:
+    get:
+      summary: "Retrieve a product by ID"
+      parameters:
+        - in: "path"
+          name: "id"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Product retrieved successfully"
+          schema:
+            $ref: "#/definitions/Product"
+definitions:
+  Product:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      name:
+        type: "string"
+      price:
+        type: "number"
+  ProductInput:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      price:
+        type: "number"
+
+paths:
+  /products:
+    get:
+      summary: Get all products
+      responses:
+        '200':
+          description: Successful operation
+    post:
+      summary: Create a new product
+      responses:
+        '201':
+          description: Product created
+
+  /products/{id}:
+    get:
+      summary: Get a product by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+    put:
+      summary: Update a product by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Product updated
+    delete:
+      summary: Delete a product by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Product deleted
+
+  /orders:
+    get:
+      summary: Get all orders
+      responses:
+        '200':
+          description: Successful operation
+    post:
+      summary: Create a new order
+      responses:
+        '201':
+          description: Order created
+
+  /orders/{id}:
+    get:
+      summary: Get an order by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+    put:
+      summary: Update an order by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Order updated
+    delete:
+      summary: Delete an order by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Order deleted
+
+  /customers:
+    get:
+      summary: Get all customers
+      responses:
+        '200':
+          description: List of all customers
+    post:
+      summary: Create a new customer
+      responses:
+        '201':
+          description: Customer created
+
+  /customers/{id}:
+    get:
+      summary: Get a customer by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Customer details
+    put:
+      summary: Update a customer by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Customer updated
+    delete:
+      summary: Delete a customer by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Customer deleted
+
+  /production:
+    get:
+      summary: Get all production entries
+      responses:
+        '200':
+          description: List of all production entries
+    post:
+      summary: Create a new production entry
+      responses:
+        '201':
+          description: Production entry created
+
+  /production/{id}:
+    get:
+      summary: Get a production entry by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Production entry details
+    put:
+      summary: Update a production entry by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Production entry updated
+    delete:
+      summary: Delete a production entry by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Production entry deleted
+
+  /employees:
+    get:
+      summary: Get all employees
+      responses:
+        '200':
+          description: List of all employees
+    post:
+      summary: Create a new employee
+      responses:
+        '201':
+          description: Employee created
+
+  /employees/{id}:
+    get:
+      summary: Get an employee by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Employee details
+    put:
+      summary: Update an employee by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Employee updated
+    delete:
+      summary: Delete an employee by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Employee deleted
